@@ -23,4 +23,32 @@ depositeButton.addEventListener('click', function() {
     // get total balance count
     currentTotalBalanceFind.innerText = currentTotalBalance + depositeValue;
 
+});
+
+// withdraw calculation
+const withdrawButton = document.getElementById('withdraw-button');
+withdrawButton.addEventListener('click', function() {
+    // get input withdraw value
+    const withdrawInputField = document.getElementById('withdraw-input-field');
+    const withdrawInputValue = withdrawInputField.value;
+    const withdrawValue = parseFloat(withdrawInputValue);
+
+    // get current withdraw balance
+    const currentWithdrawFind = document.getElementById('current-withdraw-balance');
+    const currentWithdrawText = currentWithdrawFind.innerText;
+    const currentWithdrawBalance = parseFloat(currentWithdrawText);
+
+    // get total withdraw balance
+    currentWithdrawFind.innerText = currentWithdrawBalance + withdrawValue;
+    withdrawInputField.value = '';
+
+    // get total balance
+    const currentTotalBalanceFind = document.getElementById("current-total-balance");
+    const currentTotalBalanceText = currentTotalBalanceFind.innerText;
+    const currentTotalBalance = parseFloat(currentTotalBalanceText);
+
+    // get total balance count
+    currentTotalBalanceFind.innerText = currentTotalBalance - withdrawValue;
+
+
 })
