@@ -50,5 +50,4 @@ withdrawButton.addEventListener('click', function() {
     // get total balance count
     currentTotalBalanceFind.innerText = currentTotalBalance - withdrawValue;
 
-
 })
