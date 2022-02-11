@@ -30,7 +30,7 @@
             <div class="grid grid-cols-3 w-3/4 mx-auto gap-4 mt-8">
                 <div class="bg-blue-200 p-6 rounded-md">
                     <h2 class="text-2xl">Deposite</h2>
-                    <h1 class="text-5xl font-semibold">$<span>00</span></h1>
+                    <h1 class="text-5xl font-semibold">$<span id="current-deposite-balance">00</span></h1>
                 </div>
                 <div class="bg-cyan-200 p-6 rounded-md">
                     <h2 class="text-2xl">Withdraw</h2>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="bg-gray-200 p-6 rounded-md">
                     <h2 class="text-2xl">Total Balance</h2>
-                    <h1 class="text-5xl font-semibold">$<span>00</span></h1>
+                    <h1 class="text-5xl font-semibold">$<span id="current-total-balance">1250</span></h1>
                 </div>
             </div>
         </section>
@@ -47,8 +47,8 @@
             <div class="grid grid-cols-2 gap-4 w-3/4 mx-auto mt-8">
                 <div class="bg-purple-300 p-6 rounded">
                     <h1 class="mb-2 text-2xl font-semibold">Please Deposite</h1>
-                    <input class="block mb-2 p-2 w-3/4 rounded" type="text" placeholder="$enter amount you want to deposite">
-                    <button id="login-button" class="bg-green-500 text-white font-semibold px-4 py-2 rounded">Deposite</button>
+                    <input id="deposite-input-field" class="block mb-2 p-2 w-3/4 rounded" type="text" placeholder="$enter amount you want to deposite">
+                    <button id="deposite-button" class="bg-green-500 text-white font-semibold px-4 py-2 rounded">Deposite</button>
                 </div>
                 <div class="bg-yellow-300 p-6 rounded">
                     <h1 class="mb-2 text-2xl font-semibold">Please Withdraw</h1>
