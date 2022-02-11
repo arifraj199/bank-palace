@@ -6,12 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Of Palace</title>
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <!-- tailwind cdn link -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- header section -->
+    <header>
+        <section>
+            <h1 class="text-5xl w-1/2 mx-auto mt-16">Welcome To <span class="font-semibold text-green-700">Bank Of PALACE</span></h1>
+        </section>
+    </header>
+    <!-- main section -->
+    <main>
+        <section class="bg-fuchsia-400 w-3/4 mx-auto p-8 rounded-md mt-4">
+            <h1 class="text-2xl font-semibold">Please Login</h1>
+            <div class="mt-2">
+                <input class="block mb-2 p-2 w-3/4 rounded" type="email" placeholder="enter your email">
+                <input class="block mb-2 p-2 w-3/4 rounded" type="password" name="" id="" placeholder="enter your password">
+                <button class="bg-orange-700 text-white px-4 py-2 rounded">Submit</button>
+            </div>
+        </section>
+    </main>
 
     <script src="js/bank-palace.js"></script>
 </body>
