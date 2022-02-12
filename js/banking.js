@@ -13,70 +13,48 @@ function getBalance(getText, depositeValue) {
     const currentBalance = parseFloat(currentBalanceText);
     currentBalanceFind.innerText = currentBalance + depositeValue;
 }
-// get total balance
-function totalBalance(getTotalBalanceText, depositeValue) {
-    const currentTotalBalanceFind = document.getElementById(getTotalBalanceText);
+// get current total balance
+function currentExistingBalance() {
+    const currentTotalBalanceFind = document.getElementById("current-total-balance");
     const currentTotalBalanceText = currentTotalBalanceFind.innerText;
     const currentTotalBalance = parseFloat(currentTotalBalanceText);
-    currentTotalBalanceFind.innerText = currentTotalBalance + depositeValue;
+    return currentTotalBalance;
+
+}
+// get total balance
+function totalBalance(getTotalBalanceText, depositeValue, isAdd) {
+    const currentTotalBalanceFind = document.getElementById(getTotalBalanceText);
+    const currentTotalBalance = currentExistingBalance();
+    if (isAdd == true) {
+        currentTotalBalanceFind.innerText = currentTotalBalance + depositeValue;
+    } else {
+        currentTotalBalanceFind.innerText = currentTotalBalance - depositeValue;
+    }
 }
 
 // deposite calculation
 const depositeButton = document.getElementById('deposite-button');
 depositeButton.addEventListener('click', function() {
-    // get input deposite value
-    // const depositeInputField = document.getElementById('deposite-input-field');
-    // const depositeInputValue = depositeInputField.value;
-    // const depositeValue = parseFloat(depositeInputValue);
+
     const depositeValue = getInput('deposite-input-field');
-
-    // get current deposite balance
-    // const currentDepositeFind = document.getElementById("current-deposite-balance");
-    // const currentDepositeBalanceText = currentDepositeFind.innerText;
-    // const currentDepositeBalance = parseFloat(currentDepositeBalanceText);
-
-    // get total deposite balance
-    // currentDepositeFind.innerText = currentDepositeBalance + depositeValue;
-    // depositeInputField.value = '';
-    getBalance("current-deposite-balance", depositeValue);
-
-    // get total balance
-    // const currentTotalBalanceFind = document.getElementById("current-total-balance");
-    // const currentTotalBalanceText = currentTotalBalanceFind.innerText;
-    // const currentTotalBalance = parseFloat(currentTotalBalanceText);
-
-    // get total balance count
-    // currentTotalBalanceFind.innerText = currentTotalBalance + depositeValue;
-    totalBalance("current-total-balance", depositeValue);
-
-
+    if (depositeValue > 0) {
+        getBalance("current-deposite-balance", depositeValue);
+        totalBalance("current-total-balance", depositeValue, true);
+    } else {
+        alert('Please give valid value');
+    }
 });
 
 // withdraw calculation
 const withdrawButton = document.getElementById('withdraw-button');
 withdrawButton.addEventListener('click', function() {
-    // get input withdraw value
-    // const withdrawInputField = document.getElementById('withdraw-input-field');
-    // const withdrawInputValue = withdrawInputField.value;
-    // const withdrawValue = parseFloat(withdrawInputValue);
+
     const withdrawValue = getInput('withdraw-input-field');
-
-    // get current withdraw balance
-    // const currentWithdrawFind = document.getElementById('current-withdraw-balance');
-    // const currentWithdrawText = currentWithdrawFind.innerText;
-    // const currentWithdrawBalance = parseFloat(currentWithdrawText);
-
-    // get total withdraw balance
-    // currentWithdrawFind.innerText = currentWithdrawBalance + withdrawValue;
-    // withdrawInputField.value = '';
-    getBalance('current-withdraw-balance', withdrawValue);
-
-    // get total balance
-    // const currentTotalBalanceFind = document.getElementById("current-total-balance");
-    // const currentTotalBalanceText = currentTotalBalanceFind.innerText;
-    // const currentTotalBalance = parseFloat(currentTotalBalanceText);
-
-    // get total balance count
-    // currentTotalBalanceFind.innerText = currentTotalBalance - withdrawValue;
-    totalBalance("current-total-balance", withdrawValue);
+    const currentTotalBalance = currentExistingBalance();
+    if (withdrawValue > 0 && withdrawValue < currentTotalBalance) {
+        getBalance('current-withdraw-balance', withdrawValue);
+        totalBalance("current-total-balance", withdrawValue, false);
+    } else {
+        alert('Please give valid value');
+    }
 })
