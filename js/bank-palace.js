@@ -8,8 +8,8 @@ loginButton.addEventListener('click', function() {
     const userEmailValue = userEmail.value;
     const userPasswordValue = userPassword.value;
 
-    // check condition
+    // user varification
     if (userEmailValue == 'karif9514@gmail.com' && userPasswordValue == 'arif@210505') {
-        console.log('user validated');
+        window.location.href = 'banking-site.html';
     }
 })
